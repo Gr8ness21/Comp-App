@@ -14,6 +14,19 @@ app.get('/', (req, res) => {
   res.send("Hello World")
 })
 
+app.get('/cities', (req, res) => {
+    cityApi.getAllCities()
+        .then(cities => {
+            res.send(cities);
+        });
+});
+
+
+
+
+
+
+
 const PORT = process.env.PORT || 3001
 
 app.listen(PORT, () => {
