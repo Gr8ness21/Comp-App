@@ -2,6 +2,10 @@ const express = require('express')
 const logger = require('morgan')
 const app = express()
 
+//calling all established functions
+const cityApi = require('./API/cityApi');
+const parkApi = require('./API/parkApi');
+
 app.use(logger('dev'))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
