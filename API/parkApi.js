@@ -11,7 +11,7 @@ const ParkSchema = mongoose.Schema({
 });
 
 // API that will take the "Park" collection in mongo
-let ParkCollection = mongoose.model("Park", ParkSchema);
+let ParkCollection = mongoose.model("parks", ParkSchema);
 
 // Function to Create New players
 function createPark(newPark, parkId) {
