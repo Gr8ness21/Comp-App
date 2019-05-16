@@ -1,7 +1,7 @@
 const express = require('express')
 const logger = require('morgan')
 const app = express()
-const methodOverride = require('method-override');
+// const methodOverride = require('method-override');
 
 //calling all established functions
 const cityApi = require('./API/cityApi');
