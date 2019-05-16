@@ -38,7 +38,7 @@ app.post('/cities', (req, res) => {
 // Deleting a new City
 app.delete('/cities/:cityId', (req, res) => {
     cityApi.deleteCityById(req.params.cityId)
-        .then(() => {
+        .then((cities) => {
             res.send(cities);
         });
 });
@@ -76,6 +76,45 @@ app.get('/parks', (req, res) => {
         });
 });
 
+// Posting a new Park
+app.post('/parks', (req, res) => {
+    parkApi.createPark(req.body)
+        .then((parks) => {
+            res.send(parks);
+        });
+});
+
+// Deleting a Park
+app.delete('/parks/:parkId', (req, res) => {
+    parkApi.deleteParkById(req.params.parkId)
+        .then((parks) => {
+            res.send(parks);
+        });
+});
+
+// Grab a single Park
+app.get('/parks/:parkId', (req, res) => {
+    //gets park
+    parkApi.getParkById(req.params.parkId)
+        .then(park => {
+            res.send(park, { park });
+        });
+});
+
+// Updating a Park
+app.put('/parks/:parkId', (req, res) => {
+    parkApi.updateParkById(req.params.parkId, req.body)
+        .then(() => {
+            res.send(park);
+        });
+});
+// // Update Route 2
+// app.put('/parks/:parkId', (req, res) => {
+//     parkApi.updateParkById(req.params.parkId, req.body)
+//         .then(() => {
+//             res.redirect("/parks");
+//         });
+// });
 
 const PORT = process.env.PORT || 3001
 
