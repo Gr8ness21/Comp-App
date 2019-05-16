@@ -6,6 +6,7 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 const ParkSchema = mongoose.Schema({
     name: String,
     bio: String,
+    side: String,
     location: Object,
     userId: ObjectId
 });
@@ -53,6 +54,7 @@ function updateParkById(parkId, park) {
 
 // calls all established functions to be exported
 module.exports = {
+    ParkSchema,
     createPark,
     getAllParks,
     getAllParksByParkId,

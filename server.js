@@ -29,7 +29,7 @@ app.get('/cities', (req, res) => {
 
 // Posting a new City
 app.post('/cities', (req, res) => {
-    teamApi.createNewCities(req.body)
+    cityApi.createNewCities(req.body)
         .then((cities) => {
             res.send(cities);
         });

@@ -32,7 +32,7 @@ function deleteCityById(cityId) {
 }
 
 // Function to update City
-function updateCityById(teamId, team) {
+function updateCityById(cityId, city) {
     return CityCollection.updateOne({ _id: cityId }, city);
 }
 
