@@ -60,8 +60,8 @@ app.get('/cities/:cityId', (req, res) => {
 // Update a City
 app.put('/cities/:cityId', (req, res) => {
     cityApi.updateCityById(req.params.cityId, req.body)
-        .then(() => {
-            res.redirect("/cities");
+        .then((city) => {
+            res.send(city)
         });
 });
 
@@ -92,19 +92,19 @@ app.delete('/parks/:parkId', (req, res) => {
         });
 });
 
-// Grab a single Park
+// Grab a single Park Object
 app.get('/parks/:parkId', (req, res) => {
     //gets park
     parkApi.getParkById(req.params.parkId)
         .then(park => {
-            res.send(park, { park });
+            res.send(park);
         });
 });
 
 // Updating a Park
 app.put('/parks/:parkId', (req, res) => {
     parkApi.updateParkById(req.params.parkId, req.body)
-        .then(() => {
+        .then((park) => {
             res.send(park);
         });
 });
