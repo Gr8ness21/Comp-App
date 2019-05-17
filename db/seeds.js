@@ -24,32 +24,48 @@ let CityParks = [
 },
     {name: "Coan Park",
     bio: "",
-    side: "",
+    side: "East Atlanta",
 },
-    {name: "Lang-Carson Park"
-
+    {name: "Lang-Carson Park",
+    bio: "",
+    side: "East Atlanta",
 },
-    {name: "Piedmont Park"
-
+    {name: "Piedmont Park",
+    bio: "",
+    side: "Midtown",
 },
-    {name: "Grant Park"
-
+    {name: "Grant Park",
+    bio: "",
+    side: "East Atlanta",
 },
-    {name: "Rawson-Washington Park"
-
+    {name: "Grove Park Recreation Center",
+    bio: "",
+    side: "West Atlanta",
 },
-    {name: "East Lake Park"
-
+    {name: "East Lake Park",
+    bio: "",
+    side: "East Atlanta",
 },
-    {name: "Washington"
-
+    {name: "Washington Park",
+    bio: "",
+    side: "West Atlanta",
 },
-    {name: "McKoy Park"
-
+    {name: "McKoy Park",
+    bio: "",
+    side: "East Atlanta",
+},
+    {name: "South Bend Park",
+    bio: "A Dog Park A River",
+    side: "South Atlanta",
+},
+    {name: "South Atlanta Park",
+    bio: "",
+    side: "South Atlanta",
 }
 
 
 ]
+
 // console.log(ParksModel)
 
 ParksModel.ParkSchema.deleteMany({})
