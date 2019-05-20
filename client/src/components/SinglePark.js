@@ -4,35 +4,37 @@ import axios from "axios";
 
 class SinglePark extends Component {
     state = {
-        city: {
+        park: {
             name: '',
-            description: ''
+            bio: '',
+            side: ''
         },
         resInfo: {
-            city: {
+            park: {
                 _id: '',
                 name: '',
-                description: ''
+                bio: '',
+                side: ''
             },
             parks: []
         },
         redirectToHome: false,
         isEditFormDisplayed: false
     }
-getcity=()=>{
-    axios.get(`/api/cities/${this.props.match.params.id}`).then(res => {
+getpark=()=>{
+    axios.get(`/api/parks/${this.props.match.params.id}`).then(res => {
         console.log(res.data)
         this.setState({ resInfo: res.data })
     })
 }
 
     componentDidMount = () => {
-        this.getcity()
+        this.getpark()
        
     }
 
-    deleteCity = () => {
-        axios.delete(`/api/cities/${this.props.match.params.id}`).then(res => {
+    deletepark = () => {
+        axios.delete(`/api/parks/${this.props.match.params.id}`).then(res => {
             this.setState({ redirectToHome: true })
         })
     }
@@ -44,38 +46,40 @@ getcity=()=>{
     }
 
     handleChange = (e) => {
-        const cloneCity = { ...this.state.city }
-        cloneCity[e.target.name] = e.target.value
-        this.setState({ city: cloneCity })
+        const clonePark = { ...this.state.park }
+        clonePark[e.target.name] = e.target.value
+        this.setState({ city: clonePark })
     }
 
-    updateCity = (e) => {
+    updatePark = (e) => {
         e.preventDefault()
         axios
-            .put(`/api/cities/${this.props.match.params.id}`, {
-                name: this.state.city.name,
-                description: this.state.city.description
+            .put(`/api/parks/${this.props.match.params.id}`, {
+                name: this.state.park.name,
+                bio: this.state.park.bio,
+                side: this.state.park.side
             })
             .then(res => {
                 this.setState({ city: res.data, isEditFormDisplayed: false })
             })
-            this.getcity()
+            this.getpark()
     }
 
     render() {
         if (this.state.redirectToHome) {
-            return (<Redirect to="/cities" />)
+            return (<Redirect to="/parks" />)
         }
 
         return (
             <div>
-                <Link to="/cities">Back to Cities</Link>
-                {/* <h1>{this.state.resInfo.city.name}</h1> */}
-                {/* <p>{this.state.resInfo.city.description}</p> */}
+                <Link to="/parks">Back to Parks</Link>
+                {/* { <h1>{this.state.resInfo.park.name}</h1> }
+                { <p>{this.state.resInfo.park.bio}</p> }
+                { <h2>{this.state.resInfo.park.side}</h2> } */}
                 <button onClick={this.toggleEditForm}>Edit</button>
                 {
                     this.state.isEditFormDisplayed
-                        ? <form onSubmit={this.updateCity}>
+                        ? <form onSubmit={this.updatePark}>
                             <div>
                                 <label htmlFor="name">Name</label>
                                 <input
@@ -83,28 +87,28 @@ getcity=()=>{
                                     type="text"
                                     name="name"
                                     onChange={this.handleChange}
-                                    value={this.state.city.name}
+                                    value={this.state.park.name}
                                 />
                             </div>
                             <div>
-                                <label htmlFor="description">Description</label>
+                                <label htmlFor="bio">Bio</label>
                                 <textarea
-                                    id="description"
-                                    name="description"
+                                    id="bio"
+                                    name="bio"
                                     onChange={this.handleChange}
-                                    value={this.state.city.description}
+                                    value={this.state.park.bio}
                                 />
                             </div>
                             <button>Update</button>
                         </form>
                         : <div>
                             <div>
-                                Name: {this.state.city.name}
+                                Name: {this.state.park.name}
                             </div>
                             <div>
-                                Description: {this.state.city.description}
+                                Bio: {this.state.park.bio}
                             </div>
-                            <button onClick={this.deleteCity}>Delete</button>
+                            <button onClick={this.deletePark}>Delete</button>
                         </div>
                 }
             </div>

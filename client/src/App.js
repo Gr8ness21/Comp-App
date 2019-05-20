@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Cities from "./components/Cities"
 import Parks from "./components/Parks"
 import SingleCity from "./components/SingleCity"
@@ -13,13 +13,17 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <p> Hey welcome to stuff </p>
-<div><Link to={'/parks'}>PARKS </Link> <Link to={'/cities'}>Cities </Link> <Link to={'/'}>Home </Link>     </div>
-          <Route exact path="/" component={Nav}/>
-          <Route exact path="/parks" component={Parks}/>
-          <Route exact path="/cities" component={Cities}/>
-          <Route exact path="/cities/:id" component={SingleCity}/>
-          <Route exact path="/parks/:id" component={SinglePark}/>
+          <p> Welcome to the "Comp APP" </p>
+          <div>
+            <Link to={'/parks'}>Parks</Link>
+            <Link to={'/cities'}>Cities </Link>
+            <Link to={'/'}>Home </Link>
+          </div>
+          <Route exact path="/" component={Nav} />
+          <Route exact path="/parks" component={Parks} />
+          <Route exact path="/cities" component={Cities} />
+          <Route exact path="/cities/:id" component={SingleCity} />
+          <Route exact path="/parks/:id" component={SinglePark} />
 
         </div>
       </Router>
