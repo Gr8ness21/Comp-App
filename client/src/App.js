@@ -4,6 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Route} from 'react-router-dom'
 import Cities from "./components/Cities"
 import Parks from "./components/Parks"
+import SingleCity from "./components/SingleCity"
 
 class App extends Component {
   render() {
@@ -11,8 +12,13 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route path="/parks" component={Parks}/>
-          <Route path="/cities" component={Cities}/>
+          <p> Hey welcome to stuff </p>
+          <Route exact path="/parks" component={Parks}/>
+
+          <Route exact path="/cities" component={Cities}/>
+          <Route exact path="/cities/:id" component={SingleCity}/>
+          <Route exact path="/city" component={SingleCity}/>
+          
         </div>
       </Router>
     )

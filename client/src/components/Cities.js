@@ -13,7 +13,7 @@ class Cities extends Component {
   }
 
   componentDidMount = () => {
-    axios.get('/cities').then(res => {
+    axios.get('api/cities').then(res => {
         this.setState({cities: res.data})
     })
   }
@@ -33,7 +33,7 @@ class Cities extends Component {
   createCity = (e) => {
     e.preventDefault()
     axios
-        .post('cities', {
+        .post('api/cities', {
             name: this.state.newCity.name,
             description: this.state.newCity.description
         })
@@ -61,7 +61,7 @@ class Cities extends Component {
                 return (
                     <div key={city._id}>
                         <Link
-                            to={`/${city._id}`}
+                            to={`/cities/${city._id}`}
                         >
                             {city.name}
                         </Link>
