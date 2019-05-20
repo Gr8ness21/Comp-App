@@ -13,7 +13,7 @@ class Cities extends Component {
   }
 
   componentDidMount = () => {
-    axios.get('/API/cityApi').then(res => {
+    axios.get('/cities').then(res => {
         this.setState({cities: res.data})
     })
   }
@@ -33,7 +33,7 @@ class Cities extends Component {
   createCity = (e) => {
     e.preventDefault()
     axios
-        .post('/API/cityApi', {
+        .post('cities', {
             name: this.state.newCity.name,
             description: this.state.newCity.description
         })

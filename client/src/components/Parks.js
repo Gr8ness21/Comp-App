@@ -14,7 +14,7 @@ class Parks extends Component {
   }
 
   componentDidMount = () => {
-    axios.get('/API/parkApi').then(res => {
+    axios.get('/parks').then(res => {
         this.setState({parks: res.data})
     })
   }
@@ -34,7 +34,7 @@ class Parks extends Component {
   createPark = (e) => {
     e.preventDefault()
     axios
-        .post('/API/parkApi', {
+        .post('/parks', {
             name: this.state.newPark.name,
             description: this.state.newPark.description
         })

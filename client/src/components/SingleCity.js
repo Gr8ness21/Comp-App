@@ -13,13 +13,13 @@ class SingleCity extends Component {
   }
 
   componentDidMount = () => {
-      axios.get(`/api/v1/${this.props.match.params.id}`).then(res => {
+      axios.get(`/cities/parks/${this.props.match.params.id}`).then(res => {
           this.setState({city: res.data})
       })
   }
 
   deleteCity = () => {
-      axios.delete(`/api/v1/${this.props.match.params.id}`).then(res => {
+      axios.delete(`/cities/parks/${this.props.match.params.id}`).then(res => {
           this.setState({redirectToHome: true})
       })
   }
@@ -39,7 +39,7 @@ class SingleCity extends Component {
   updateCity = (e) => {
       e.preventDefault()
       axios
-        .put(`/api/v1/${this.props.match.params.id}`, {
+        .put(`/cities/parks/${this.props.match.params.id}`, {
             name: this.state.city.name,
             description: this.state.city.description
         })
@@ -55,7 +55,7 @@ class SingleCity extends Component {
 
     return (
       <div>
-        <Link to="/">Back to Cities</Link>
+        <Link to="/cities">Back to Cities</Link>
         <h1>Single City</h1>
         <button onClick={this.toggleEditForm}>Edit</button>
         {
