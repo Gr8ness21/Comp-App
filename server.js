@@ -17,7 +17,7 @@ app.use(express.json());
 //     res.sendFile(`${__dirname}/client/build/index.html`)
 //   })
 
-app.get('/', (req, res) => {
+app.get('/api/', (req, res) => {
  res.send("Hello World")
 });
 
@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 // _____________________________________
 
 
-app.get('/cities', (req, res) => {
+app.get('/api/cities', (req, res) => {
     cityApi.getAllCities()
         .then(cities => {
             res.send(cities);
@@ -36,7 +36,7 @@ app.get('/cities', (req, res) => {
 });
 
 // Posting a new City
-app.post('/cities', (req, res) => {
+app.post('/api/cities', (req, res) => {
     cityApi.createNewCities(req.body)
         .then((cities) => {
             res.send(cities);
@@ -44,7 +44,7 @@ app.post('/cities', (req, res) => {
 });
 
 // Deleting a new City
-app.delete('/cities/:cityId', (req, res) => {
+app.delete('/api/cities/:cityId', (req, res) => {
     cityApi.deleteCityById(req.params.cityId)
         .then((cities) => {
             res.send(cities);
@@ -52,21 +52,23 @@ app.delete('/cities/:cityId', (req, res) => {
 });
 
 // Access a single City
-app.get('/cities/:cityId', (req, res) => {
+app.get('/api/cities/:cityId', (req, res) => {
     //gets city
     cityApi.getCityById(req.params.cityId)
         .then((city) => {
             parkApi.getParksByCityId(req.params.cityId)
                 .then((parks) => {
                     console.log(city)
+                    
                     console.log(parks)
-                    res.send(cities/parks, { city, parks });
+                  
+                    res.send({ city, parks });
                 });
         });
 });
 
 // Update a City
-app.put('/cities/:cityId', (req, res) => {
+app.put('/api/cities/:cityId', (req, res) => {
     cityApi.updateCityById(req.params.cityId, req.body)
         .then((city) => {
             res.send(city)
@@ -77,7 +79,7 @@ app.put('/cities/:cityId', (req, res) => {
 //              Park Model 
 // _____________________________________
 
-app.get('/parks', (req, res) => {
+app.get('/api/parks', (req, res) => {
     parkApi.getAllParks()
         .then(parks => {
             res.send(parks);
@@ -85,7 +87,7 @@ app.get('/parks', (req, res) => {
 });
 
 // Posting a new Park
-app.post('/parks', (req, res) => {
+app.post('/api/parks', (req, res) => {
     parkApi.createPark(req.body)
         .then((parks) => {
             res.send(parks);
@@ -93,7 +95,7 @@ app.post('/parks', (req, res) => {
 });
 
 // Deleting a Park
-app.delete('/parks/:parkId', (req, res) => {
+app.delete('/api/parks/:parkId', (req, res) => {
     parkApi.deleteParkById(req.params.parkId)
         .then((parks) => {
             res.send(parks);
@@ -101,7 +103,7 @@ app.delete('/parks/:parkId', (req, res) => {
 });
 
 // Grab a single Park Object
-app.get('/parks/:parkId', (req, res) => {
+app.get('/api/parks/:parkId', (req, res) => {
     //gets park
     parkApi.getParkById(req.params.parkId)
         .then(park => {
@@ -110,7 +112,7 @@ app.get('/parks/:parkId', (req, res) => {
 });
 
 // Updating a Park
-app.put('/parks/:parkId', (req, res) => {
+app.put('/api/parks/:parkId', (req, res) => {
     parkApi.updateParkById(req.params.parkId, req.body)
         .then((park) => {
             res.send(park);
