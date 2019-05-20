@@ -12,7 +12,7 @@ let CityCollection = mongoose.model("cities", CitySchema);
 
 // Fuction to get all Neighborhoods
 function getAllCities() {
-    //using mongoose to get all teams
+    //using mongoose to get all cities
     return CityCollection.find();
 }
 
