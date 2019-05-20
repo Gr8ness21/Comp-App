@@ -15,7 +15,7 @@ class App extends Component {
         <div>
           <p> Hey welcome to stuff </p>
 <div><Link to={'/parks'}>PARKS </Link> <Link to={'/cities'}>Cities </Link> <Link to={'/'}>Home </Link>     </div>
-<Route exact path="/" component={Nav}/>
+          <Route exact path="/" component={Nav}/>
           <Route exact path="/parks" component={Parks}/>
           <Route exact path="/cities" component={Cities}/>
           <Route exact path="/cities/:id" component={SingleCity}/>

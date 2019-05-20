@@ -70,8 +70,8 @@ getcity=()=>{
         return (
             <div>
                 <Link to="/cities">Back to Cities</Link>
-                <h1>{this.state.resInfo.city.name}</h1>
-                <p>{this.state.resInfo.city.description}</p>
+                {/* <h1>{this.state.resInfo.city.name}</h1> */}
+                {/* <p>{this.state.resInfo.city.description}</p> */}
                 <button onClick={this.toggleEditForm}>Edit</button>
                 {
                     this.state.isEditFormDisplayed
