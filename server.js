@@ -17,7 +17,7 @@ app.use(express.json());
 //     res.sendFile(`${__dirname}/client/build/index.html`)
 //   })
 
-app.get('/api/', (req, res) => {
+app.get('/api', (req, res) => {
  res.send("Hello World")
 });
 
