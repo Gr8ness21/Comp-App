@@ -4,7 +4,8 @@ const mongoose = require('../db/connection.js');
 //defining the entities
 
 const CitySchema = mongoose.Schema({
-    name: String
+    name: String,
+    description: String
 });
 
 //creating an API that will take the "city" collection in mongodb

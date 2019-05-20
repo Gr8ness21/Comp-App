@@ -14,7 +14,7 @@ class Parks extends Component {
   }
 
   componentDidMount = () => {
-    axios.get('/parks').then(res => {
+    axios.get('api/parks').then(res => {
         this.setState({parks: res.data})
     })
   }
@@ -34,7 +34,7 @@ class Parks extends Component {
   createPark = (e) => {
     e.preventDefault()
     axios
-        .post('/parks', {
+        .post('api/parks', {
             name: this.state.newPark.name,
             description: this.state.newPark.description
         })
@@ -63,7 +63,7 @@ class Parks extends Component {
                 return (
                     <div key={park._id}>
                         <Link
-                            to={`/${park._id}`}
+                            to={`/parks/${park._id}`}
                         >
                             {park.name}
                         </Link>
@@ -92,7 +92,7 @@ class Parks extends Component {
                             type="text"
                             name="bio"
                             onChange={this.handleChange}
-                            value={this.state.newPark.description}
+                            value={this.state.newPark.bio}
                         />
                     </div>
                     <div>
@@ -102,7 +102,7 @@ class Parks extends Component {
                             type="text"
                             name="side"
                             onChange={this.handleChange}
-                            value={this.state.newPark.description}
+                            value={this.state.newPark.side}
                         />
                     </div>
                     <button>Create</button>
