@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route} from 'react-router-dom'
 import Cities from "./components/Cities"
@@ -14,6 +14,7 @@ class App extends Component {
       <Router>
         <div>
           <p> Hey welcome to stuff </p>
+
           <Route exact path="/parks" component={Parks}/>
           <Route exact path="/cities" component={Cities}/>
           <Route exact path="/cities/:id" component={SingleCity}/>
