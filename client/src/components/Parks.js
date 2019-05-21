@@ -58,7 +58,7 @@ class Parks extends Component {
         return (
 
             <div className="parkPage">
-                <h1>Parks</h1>
+                <h3>Parks</h3>
                 <div className="parkImg"></div>
 
                 <div className="parkList">

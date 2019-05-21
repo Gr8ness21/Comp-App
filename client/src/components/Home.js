@@ -7,7 +7,7 @@ class Home extends Component {
         return (
 
             <div className="homePage">
-                <h1> Welcome to the "Comp APP" </h1>
+                <h1> Welcome to the "Comp App" </h1>
                 <p> Explore some of your cities amazing parks, courts, and fields!
                 </p>
             </div>

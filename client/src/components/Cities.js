@@ -57,7 +57,7 @@ class Cities extends Component {
 
 
             <div className="cityPage">
-                <h1>Cities</h1>
+                <h3>Cities</h3>
                 <div className="cityImg"></div>
 
                 <div className="cityList">

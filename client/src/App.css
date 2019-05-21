@@ -1,13 +1,30 @@
+@font-face {
+  font-family: 'sporty';
+  src: url('./components/Fonts/button_shield/Button Shield Personal Use Only.ttf');
+}
+
+h1, h3{
+  font-family: 'sporty';
+  font-size: 50px;
+}
+
+p{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
 *{
   text-decoration: none;
   color: inherit;
 }
 
 .navBar {
+  font-family: 'sporty';
+  font-weight: bold;
 display: flex;
 justify-content: space-around;
 align-items: center;
-background-color: black;
+background-color: whitesmoke;
 color: teal;
 font-size: 30px;
 height: 10vh;
@@ -35,10 +52,14 @@ width: 100vw;
 align-items: center;
 background-repeat: no-repeat;
 background-size: 100% 100%;
+font-family: 'Courier New', Courier, monospace;
+font-weight: bold;
+color: teal;
 }
 .cityImg{
 background: url("Images/soccer3Wallpaper.jpg");
 background-size: 100% 100%;
+margin-top: -40px;
 height: 50vh;
 width: 60vw;
 }
@@ -61,10 +82,14 @@ width: 100vw;
 align-items: center;
 background-repeat: no-repeat;
 background-size: 100% 100%;
+font-family: 'Courier New', Courier, monospace;
+font-weight: bold;
+color: teal;
 }
 .parkImg{
   background: url("Images/bbcourt2Wallpaper.jpeg");
 background-size: 100% 100%;
+margin-top: -40px;
 height: 50vh;
 width: 60vw;
 }
