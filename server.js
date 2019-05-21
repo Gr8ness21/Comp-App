@@ -11,6 +11,8 @@ app.use(logger('dev'))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+//Linking CSS
+app.use('/client/public', express.static("public"))
 
 // app.use(express.static(`${__dirname}/client/build`))
 
