@@ -7,6 +7,7 @@ import Parks from "./components/Parks"
 import SingleCity from "./components/SingleCity"
 import SinglePark from "./components/SinglePark"
 import Nav from "./components/Nav"
+
 class App extends Component {
   render() {
 
@@ -15,11 +16,9 @@ class App extends Component {
         <div>
           <p> Welcome to the "Comp APP" </p>
           <div>
-            <Link to={'/parks'}>Parks</Link>
-            <Link to={'/cities'}>Cities </Link>
-            <Link to={'/'}>Home </Link>
+            <Nav />
           </div>
-          <Route exact path="/" component={Nav} />
+          
           <Route exact path="/parks" component={Parks} />
           <Route exact path="/cities" component={Cities} />
           <Route exact path="/cities/:id" component={SingleCity} />
