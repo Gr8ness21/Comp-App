@@ -7,6 +7,7 @@ import Parks from "./components/Parks"
 import SingleCity from "./components/SingleCity"
 import SinglePark from "./components/SinglePark"
 import Nav from "./components/Nav"
+import Home from "./components/Home"
 
 class App extends Component {
   render() {
@@ -14,11 +15,12 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <p> Welcome to the "Comp APP" </p>
+
           <div>
             <Nav />
           </div>
           
+          <Route exact path="/" component={Home} />
           <Route exact path="/parks" component={Parks} />
           <Route exact path="/cities" component={Cities} />
           <Route exact path="/cities/:id" component={SingleCity} />

@@ -4,7 +4,7 @@ class Nav extends Component {
     render() {
         return (
             <div>
-                <div>
+                <div className="navBar">
                     <Link to={'/'}>Home </Link>
                     <Link to={'/cities'}>Cities </Link>
                     <Link to={'/parks'}> Parks </Link>

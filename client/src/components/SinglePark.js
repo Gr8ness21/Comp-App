@@ -24,7 +24,7 @@ class SinglePark extends Component {
 getpark=()=>{
     axios.get(`/api/parks/${this.props.match.params.id}`).then(res => {
         console.log(res.data)
-        this.setState({ resInfo: res.data })
+        this.setState({ park: res.data })
     })
 }
 
@@ -33,7 +33,7 @@ getpark=()=>{
        
     }
 
-    deletepark = () => {
+    deletePark = () => {
         axios.delete(`/api/parks/${this.props.match.params.id}`).then(res => {
             this.setState({ redirectToHome: true })
         })
@@ -48,7 +48,7 @@ getpark=()=>{
     handleChange = (e) => {
         const clonePark = { ...this.state.park }
         clonePark[e.target.name] = e.target.value
-        this.setState({ city: clonePark })
+        this.setState({ park: clonePark })
     }
 
     updatePark = (e) => {
@@ -87,7 +87,7 @@ getpark=()=>{
                                     type="text"
                                     name="name"
                                     onChange={this.handleChange}
-                                    value={this.state.park.name}
+                                    placeholder={this.state.park.name}
                                 />
                             </div>
                             <div>
@@ -96,7 +96,16 @@ getpark=()=>{
                                     id="bio"
                                     name="bio"
                                     onChange={this.handleChange}
-                                    value={this.state.park.bio}
+                                    placeholder={this.state.park.bio}
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="side">Side</label>
+                                <textarea
+                                    id="side"
+                                    name="side"
+                                    onChange={this.handleChange}
+                                    placeholder={this.state.park.side}
                                 />
                             </div>
                             <button>Update</button>
@@ -107,6 +116,9 @@ getpark=()=>{
                             </div>
                             <div>
                                 Bio: {this.state.park.bio}
+                            </div>
+                            <div>
+                                Side: {this.state.park.side}
                             </div>
                             <button onClick={this.deletePark}>Delete</button>
                         </div>
