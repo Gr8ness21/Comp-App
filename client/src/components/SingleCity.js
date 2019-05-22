@@ -68,7 +68,7 @@ getcity=()=>{
         }
 
         return (
-            <div>
+            <div className="singleCity">
                 <Link to="/cities">Back to Cities</Link>
                 <h1>{this.state.resInfo.city.name}</h1>
                 <p>{this.state.resInfo.city.description}</p>
